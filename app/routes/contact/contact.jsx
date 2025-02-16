@@ -73,7 +73,7 @@ export async function action({ context, request }) {
   await ses.send(
     new SendEmailCommand({
       Destination: {
-        ToAddresses: [context.cloudflare.env.EMAIL],
+        ToAddresses: ["boukouchmohaed7@gmail.com"],
       },
       Message: {
         Body: {

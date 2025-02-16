@@ -313,7 +313,7 @@ export const SmartSparrow = () => {
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
-        <ThemeProvider theme="dark" data-invert>
+        {/*<ThemeProvider theme="dark" data-invert>
           <Suspense>
             <Earth
               className={styles.earth}
@@ -493,8 +493,8 @@ export const SmartSparrow = () => {
               />
             </Earth>
           </Suspense>
-        </ThemeProvider>
-        <ProjectSection>
+        </ThemeProvider> */}
+        {/*<ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow center centerMobile noMargin>
               <svg
@@ -521,7 +521,7 @@ export const SmartSparrow = () => {
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
-        </ProjectSection>
+        </ProjectSection>*/}
       </ProjectContainer>
       <Footer />
     </>
