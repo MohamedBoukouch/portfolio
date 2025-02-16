@@ -8,6 +8,14 @@ import talebLoginLarge from '~/assets/talebLoginLarge.jpg';
 import talebLogin from '~/assets/talebLoginLarge.jpg';
 import talebNotification from '~/assets/talebNotification.jpg';
 import talebNotificationLarge from '~/assets/talebNotificationLarge.jpg';
+import geriuiteloading from '~/assets/geriuiteloading.jpg';
+import geriuiteloadingLarge from '~/assets/geriuiteloadingLarge.jpg';
+import geriuiteHomeLarge from '~/assets/geriuiteHomeLarge.jpg';
+import geriuiteHome from '~/assets/geriuiteHome.jpg';
+import products from '~/assets/products.jpg';
+import productsLarge from '~/assets/productsLarge.jpg';
+import soukElhadLoading from '~/assets/soukElhadLoading.jpg';
+import soukElhadLoadingLarge from '~/assets/soukElhadLoadingLarge.jpg';
 import sliceTextureLarge from '~/assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
 import sliceTexture from '~/assets/slice-app.jpg';
@@ -152,8 +160,8 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Tawjihi - Guide d'Orientation Scolaire au Maroc"
-        description="Une application mobile développée avec Flutter et Laravel pour aider les étudiants marocains à s'orienter dans leur parcours scolaire et universitaire."
+        title="Tawjihi - School Guidance Guide in Morocco"
+        description="A mobile application developed with Flutter and Laravel to help Moroccan students navigate their academic and university journey"
         buttonText="View project"
         buttonLink="https://github.com/MohamedBoukouch/Taleb"
         model={{
@@ -161,12 +169,61 @@ export const Home = () => {
           alt: 'App login screen',
           textures: [
             {
+              srcSet: `${talebNotification} 375w, ${talebNotificationLarge} 750w`,
+              placeholder: gamestackTexture2Placeholder,
+            },
+            {
               srcSet: `${talebLogin} 375w, ${talebLoginLarge} 750w`,
               placeholder: gamestackTexturePlaceholder,
             },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-4"
+        alternate
+        sectionRef={projectTwo}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={4}
+        title="Giruette - Tourist Guide in France"
+        description="A mobile application developed with Flutter and Firebase to help tourists explore France and discover all the tourist attractions"
+        buttonText="View website"
+        buttonLink="https://github.com/MohamedBoukouch"
+        model={{
+          type: 'phone',
+          alt: 'App login screen',
+          textures: [
             {
-              srcSet: `${talebNotification} 375w, ${talebNotificationLarge} 750w`,
+              srcSet: `${geriuiteHome} 375w, ${geriuiteHomeLarge} 750w`,
               placeholder: gamestackTexture2Placeholder,
+            },
+            {
+              srcSet: `${geriuiteloading} 375w, ${geriuiteloadingLarge} 750w`,
+              placeholder: gamestackTexturePlaceholder,
+            },
+          ],
+        }}
+      />
+      <ProjectSummary
+        id="project-5"
+        sectionRef={projectThree}
+        visible={visibleSections.includes(projectThree.current)}
+        index={5}
+        title="Amghare - Tourist Guide & Store Management in Souk El Had (Agadir)"
+        description="A Figma design concept for a mobile application that guides tourists in Agadir, including Souk El Had, while helping vendors efficiently manage their stores."
+        buttonText="View project"
+        buttonLink="https://www.figma.com/design/ml55xAgtoYtVi9cwePUyX7/Untitled?node-id=35-931&t=MVNUzlGog0R6E7RB-0"
+        model={{
+          type: 'phone',
+          alt: 'App login screen',
+          textures: [
+            {
+              srcSet: `${products} 375w, ${productsLarge} 750w`,
+              placeholder: gamestackTexture2Placeholder,
+            },
+            {
+              srcSet: `${soukElhadLoading} 375w, ${soukElhadLoadingLarge} 750w`,
+              placeholder: gamestackTexturePlaceholder,
             },
           ],
         }}

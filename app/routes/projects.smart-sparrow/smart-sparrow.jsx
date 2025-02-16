@@ -147,7 +147,7 @@ export const SmartSparrow = () => {
         </ProjectSection>
         <ProjectSection light={isDark}>
           <ProjectSectionContent>
-            <Image
+            {/*<Image
               key={theme}
               srcSet={
                 isDark
@@ -163,7 +163,7 @@ export const SmartSparrow = () => {
               }
               alt={`A set of ${theme} themed components for the aero design system`}
               sizes="100vw"
-            />
+            />*/}
             <ProjectTextRow>
               <SegmentedControl
                 currentIndex={themes.indexOf(theme)}
@@ -173,7 +173,7 @@ export const SmartSparrow = () => {
                 <SegmentedControlOption>Light theme</SegmentedControlOption>
               </SegmentedControl>
             </ProjectTextRow>
-            <ProjectTextRow>
+             {/* <ProjectTextRow>
               <ProjectSectionHeading>The IPTV Streaming System</ProjectSectionHeading>
               <ProjectSectionText>
               To ensure a seamless and high-quality streaming experience for users, we developed a robust 
@@ -181,7 +181,7 @@ export const SmartSparrow = () => {
               providing a user-friendly interface, optimized streaming performance, and a cohesive experience 
               across the platform, website, and marketing materials.
               </ProjectSectionText>
-            </ProjectTextRow>
+            </ProjectTextRow> */}
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>

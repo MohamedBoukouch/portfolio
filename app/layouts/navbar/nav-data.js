@@ -9,10 +9,10 @@ export const navLinks = [
     label: 'Details',
     pathname: '/#details',
   },
-  // {
-  //   label: 'Resume',
-  //   pathname: '/articles',
-  // },
+  {
+    label: 'Resume',
+    pathname: 'https://drive.google.com/file/d/1J1JtKOPMVMDxTokv7QrNK_5CDlxejXRj/view?usp=sharing',
+  },
   {
     label: 'Contact',
     pathname: '/contact',
