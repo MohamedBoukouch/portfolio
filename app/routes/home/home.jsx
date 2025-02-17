@@ -116,9 +116,9 @@ export const Home = () => {
         visible={visibleSections.includes(projectOne.current)}
         index={1}
         title="Premium IPTV Streaming Service"
-        description="Enjoy unlimited access to the latest movies, series, and live TV channels in high quality with our IPTV platform."
+        description="Website designed and developed using React JS, offering IPTV services with a wide selection of films, series, and matches."
         buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        buttonLink="https://github.com/MohamedBoukouch/IPTV_WEB"
         model={{
           type: 'laptop',
           alt: 'IPTV streaming platform preview',
@@ -142,7 +142,7 @@ export const Home = () => {
         buttonLink="https://github.com/MohamedBoukouch/LeafSense_AI"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'LeafSense AI',
           textures: [
             {
               srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
@@ -166,7 +166,7 @@ export const Home = () => {
         buttonLink="https://github.com/MohamedBoukouch/Taleb"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Tawjihi',
           textures: [
             {
               srcSet: `${talebNotification} 375w, ${talebNotificationLarge} 750w`,
@@ -191,7 +191,7 @@ export const Home = () => {
         buttonLink="https://github.com/MohamedBoukouch"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Giruette',
           textures: [
             {
               srcSet: `${geriuiteHome} 375w, ${geriuiteHomeLarge} 750w`,
@@ -215,7 +215,7 @@ export const Home = () => {
         buttonLink="https://www.figma.com/design/ml55xAgtoYtVi9cwePUyX7/Untitled?node-id=35-931&t=MVNUzlGog0R6E7RB-0"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Amghare',
           textures: [
             {
               srcSet: `${products} 375w, ${productsLarge} 750w`,

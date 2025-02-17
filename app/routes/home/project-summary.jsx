@@ -103,7 +103,7 @@ export function ProjectSummary({
       <div className={styles.preview}>
         {model.type === 'laptop' && (
           <>
-            {renderKatakana('laptop', visible)}
+            {/*{renderKatakana('laptop', visible)}*/}
             <div className={styles.model} data-device="laptop">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />
@@ -133,7 +133,7 @@ export function ProjectSummary({
         )}
         {model.type === 'phone' && (
           <>
-            {renderKatakana('phone', visible)}
+            {/*{renderKatakana('phone', visible)}*/}
             <div className={styles.model} data-device="phone">
               {!modelLoaded && (
                 <Loader center className={styles.loader} data-visible={visible} />

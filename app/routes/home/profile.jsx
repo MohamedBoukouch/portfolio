@@ -87,9 +87,9 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
                   alt="Me smiling like a goofball at the Qwilr office in Sydney"
                 />
-                <svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
+                {/*<svg className={styles.svg} data-visible={visible} viewBox="0 0 136 766">
                   <use href={`${katakana}#katakana-profile`} />
-                </svg>
+                </svg>*/}
               </div>
             </div>
           </div>
