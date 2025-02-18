@@ -1,3 +1,18 @@
 kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
+  { id = "MY_KV", binding = "MY_KV" }
 ]
+
+name = "portfolio"
+
+# Enable future flags in Remix using the build command
+[build]
+command = "npm run build"
+
+# Configuration for the deployment environment
+[env]
+  REMIX_FUTURE_FLAGS = "v3_fetcherPersist=true,v3_lazyRouteDiscovery=true,v3_relativeSplatPath=true,v3_singleFetch=true,v3_throwAbortReason=true"
+
+# Define your account_id and workers_dev in the global section
+account_id = "your-account-id"
+workers_dev = true
+route = ""
