@@ -1,11 +1,11 @@
-name = "portfolio"  # Replace with your desired worker name
+name = "portfolio"  # Your worker name
 type = "javascript"  # Specify the type of your worker
-account_id = "077d8a41e7c8a556a1497935d87d3898"  # Replace with your Cloudflare account ID
+account_id = "077d8a41e7c8a556a1497935d87d3898"  # Your Cloudflare account ID
 workers_dev = true
-compatibility_date = "2025-02-19"  # Update with the current date
+compatibility_date = "2025-02-19"  # Current date
 
 [build]
-command = "npm install && npm run build"  # Use if you have build steps
+command = "npm install && npm run build"  # Only if you have build steps
 
 [env.production]
 main = "index.js"  # Entry point for your worker
