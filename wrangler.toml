@@ -1,11 +1,13 @@
 name = "portfolio"  # Your worker name
-type = "javascript"  # Specify the type of your worker
 account_id = "077d8a41e7c8a556a1497935d87d3898"  # Your Cloudflare account ID
 workers_dev = true
 compatibility_date = "2025-02-19"  # Current date
 
+# This is the key part that specifies the entry point
+main = "index.js"  # This is where the worker script starts, make sure it's named correctly!
+
 [build]
-command = "npm install && npm run build"  # Only if you have build steps
+command = "npm install && npm run build"  # If you have a build step
 
 [env.production]
-main = "index.js"  # Entry point for your worker
+main = "index.js"  # Same entry point in production, if required
