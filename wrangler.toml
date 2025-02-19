@@ -1,3 +1,11 @@
-kv_namespaces = [
-  { id = "MY_KV", binding="MY_KV" }
-]
+name = "portfolio"  # Replace with your desired worker name
+type = "javascript"  # Specify the type of your worker
+account_id = "077d8a41e7c8a556a1497935d87d3898"  # Replace with your Cloudflare account ID
+workers_dev = true
+compatibility_date = "2025-02-19"  # Update with the current date
+
+[build]
+command = "npm install && npm run build"  # Use if you have build steps
+
+[env.production]
+main = "index.js"  # Entry point for your worker
