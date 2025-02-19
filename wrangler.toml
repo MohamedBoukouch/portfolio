@@ -7,7 +7,7 @@ compatibility_date = "2025-02-19"  # Current date
 main = "index.js"  # This is where the worker script starts, make sure it's named correctly!
 
 [build]
-command = "npm install && npm run build"  # If you have a build step
+command = "npm run build"  # If you have a build step
 
 [env.production]
 main = "index.js"  # Same entry point in production, if required
