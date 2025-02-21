@@ -1,10 +1,11 @@
 const LIGHT_MODE_COLORS = {
     background: "#ffffff",
     text: "#333333",
-    primary: "#3498db",
+    primary: "#0BFFFF",
     secondary: "#2ecc71",
     warning: "#e74c3c",
     success: "#27ae60",
+    teal:"##0BFFFF"
   };
   
   const DARK_MODE_COLORS = {
