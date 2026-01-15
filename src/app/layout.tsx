@@ -1,3 +1,5 @@
+'use client'; // Required for fonts and effects in layout
+
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
@@ -8,29 +10,29 @@ import {
   Background,
   Column,
   Flex,
-  Meta,
   opacity,
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
+
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-}
+// Client-side fonts
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 
-export default async function RootLayout({
+// Assign fonts
+const heading = GeistSans;
+const body = GeistSans;
+const label = GeistSans;
+const code = GeistMono;
+
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <Flex
       suppressHydrationWarning
@@ -38,68 +40,31 @@ export default async function RootLayout({
       lang="en"
       fillWidth
       className={classNames(
-        fonts.heading.variable,
-        fonts.body.variable,
-        fonts.label.variable,
-        fonts.code.variable,
+        heading.variable,
+        body.variable,
+        label.variable,
+        code.variable
       )}
     >
       <head>
+        <title>{home.title}</title>
+        <meta name="description" content={home.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const root = document.documentElement;
-                  const defaultTheme = 'system';
-                  
-                  // Set defaults from config
-                  const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
-                  })};
-                  
-                  // Apply default values
-                  Object.entries(config).forEach(([key, value]) => {
-                    root.setAttribute('data-' + key, value);
-                  });
-                  
-                  // Resolve theme
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  // Apply saved theme
-                  const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(savedTheme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  // Apply any saved style overrides
-                  const styleKeys = Object.keys(config);
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
-                      root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  console.error('Failed to initialize theme:', e);
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
+            __html: `(function(){try{const root=document.documentElement;const config=${JSON.stringify({
+              brand: style.brand,
+              accent: style.accent,
+              neutral: style.neutral,
+              solid: style.solid,
+              "solid-style": style.solidStyle,
+              border: style.border,
+              surface: style.surface,
+              transition: style.transition,
+              scaling: style.scaling,
+              "viz-style": dataStyle.variant,
+            })};Object.entries(config).forEach(([k,v])=>{root.setAttribute('data-'+k,v)});const resolveTheme=themeValue=>{if(!themeValue||themeValue==='system'){return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}return themeValue};const savedTheme=localStorage.getItem('data-theme');const resolvedTheme=resolveTheme(savedTheme);root.setAttribute('data-theme',resolvedTheme);Object.keys(config).forEach(k=>{const v=localStorage.getItem('data-'+k);if(v){root.setAttribute('data-'+k,v)}})}catch(e){console.error('Failed to initialize theme:',e);document.documentElement.setAttribute('data-theme','dark')}})();`,
           }}
         />
       </head>
