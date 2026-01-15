@@ -209,6 +209,33 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+  hackathons: {
+    /** Whether to display work experience */
+    display: boolean;
+    /** Title for the work experience section */
+    title: string;
+    /** List of work experiences */
+    experiences: Array<{
+      /** Company name */
+      company: string;
+      /** Timeframe of employment */
+      /** Role or job title */
+      /** Achievements at the company */
+      achievements: React.ReactNode[];
+      description: string;
+      /** Images related to the experience */
+      images?: Array<{
+        /** Image source path */
+        src: string;
+        /** Image alt text */
+        alt: string;
+        /** Image width ratio */
+        width: number;
+        /** Image height ratio */
+        height: number;
+      }>;
+    }>;
+  };
 }
 
 /**

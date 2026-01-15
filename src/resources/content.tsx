@@ -2,14 +2,14 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Mohamed",
+  lastName: "Boukouch",
+  name: `Mohamed Boukouch`,
+  role: "Software Engineering Student",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "boukouchmohamed7@gmail.com",
+  location: "Asia/Almaty", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["Anglais", "French", "Arabe"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter: Newsletter = {
@@ -25,27 +25,27 @@ const social: Social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/MohamedBoukouch",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/mohamed-boukouch-b889b824a ",
     essential: true,
   },
   {
     name: "Instagram",
     icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
+    link: "https://www.instagram.com/mohammed_boukouch",
     essential: false,
   },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-    essential: true,
-  },
+  // {
+  //   name: "Threads",
+  //   icon: "threads",
+  //   link: "https://www.threads.com/@once_ui",
+  //   essential: true,
+  // },
   {
     name: "Email",
     icon: "email",
@@ -60,12 +60,12 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Building bridges between ideas and real projects</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4"></strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
@@ -76,7 +76,8 @@ const home: Home = {
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
+    I'm Mohamed, a software development student at <Text as="span" size="xl" weight="strong">ENSIASD TAROUDANT</Text>, where I create practical <br /> digital solutions. After classes, I work on personal projects and explore new technologies.
+    
 </>
   ),
 };
@@ -102,10 +103,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
-      </>
+      Mohamed is a Morocco-based software developer passionate about transforming complex problems
+      into simple, efficient digital solutions. His work spans mobile and web applications,
+      backend systems, and the intersection of modern technologies and user-centered design.
+      </>    
     ),
   },
   work: {
@@ -113,23 +114,29 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "SKOLUTION",
+        timeframe: "July 2025 – September 2025",
+        role: "Mobile Application Development Intern",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          Contributed to the development and improvement of digital solutions aimed at
+          enhancing user experience and platform reliability.
+        </>,
+        <>
+          Participated in the design, development, and testing of application features
+          in collaboration with the technical team.
+        </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: "/images/stages/stage_4_img_1.png",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/stages/stage_4_img_2.png",
             alt: "Once UI Project",
             width: 16,
             height: 9,
@@ -137,20 +144,83 @@ const about: About = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Gm-Soft",
+        timeframe: "April 2024 – June 2024",
+        role: "Mobile Application Development Intern",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          Developed a mobile application for student guidance, focusing on usability,
+          performance, and accurate information delivery.
+        </>,
+        <>
+          Implemented core features using Flutter with Firebase and Laravel for backend
+          integration and data management.
+        </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/stages/stage_3_img_1.png",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/stages/stage_3_img_2.png",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        company: "Developpeur-informatique.ma",
+        timeframe: "May 2023 - July 2023",
+        role: "Mobile Application Development Intern",
+        achievements: [
+          <>
+          Built a mobile application to guide tourists, providing location-based information
+          and an intuitive user experience.
+        </>,
+        <>
+          Integrated Firebase services for authentication and real-time data handling.
+        </>,
+        ],
+        images: [
+          {
+            src: "/images/stages/stage_2_img_1.png",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/stages/stage_2_img_2.png",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        company: "Fiduciaire Ben Aamer",
+        timeframe: "June 2022 - July 2022",
+        role: "Desktop Software Development Intern",
+        achievements: [
+          <>
+          Developed a desktop application for customer management, including data storage,
+          retrieval, and reporting features.
+        </>,
+        <>
+          Designed and managed a MySQL database to ensure data consistency and reliability.
+        </>,
+        ],
+        images: [
+          // {
+          //   src: "/images/projects/cover-01.jpg",
+          //   alt: "Once UI Project",
+          //   width: 16,
+          //   height: 9,
+          // },
+        ],
       },
     ],
   },
@@ -159,77 +229,110 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
+        name: "Ensiasd Taroudant",
         description: <>Studied software engineering.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Higher School of Technology Meknes",
+        description: <>Professional Bachelor’s Degree (LP) in Information and Communication Systems Development.</>,
+      },
+      {
+        name: "Higher School of Technology Guelmim",
+        description: <>University of Technology Diploma (DUT) in Computer Engineering.</>,
+      },
+      {
+        name: "Ibn Zouhair High School, Agadir",
+        description: <>Bachelor of Physical Science.</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technical Skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Programming Languages:",
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+          { name: "C", icon: "c" },
+          { name: "C++", icon: "cplusplus" },
+          { name: "Java", icon: "java" },
+          { name: "Dart", icon: "dart" },
+          { name: "JavaScript", icon: "javascript" },
         ],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Web Development:",
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "JEE", icon: "java" },
+          { name: "Spring Boot", icon: "spring" },
+          { name: "HTML", icon: "html5" },
+          { name: "CSS", icon: "css3" },
+          { name: "PHP", icon: "php" },
+          { name: "Laravel", icon: "laravel" },
+          { name: "Tailwind CSS", icon: "tailwindcss" },
+          { name: "React JS", icon: "react" },
+          { name: "Angular", icon: "angular" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+      },
+      {
+        title: "Mobile Development:",
+        tags: [
+          { name: "Flutter", icon: "flutter" },
+          { name: "Kotlin", icon: "kotlin" },
+        ],
+      },
+      {
+        title: "Databases:",
+        tags: [
+          { name: "MySQL", icon: "mysql" },
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "Oracle", icon: "oracle" },
+          { name: "SQLite", icon: "sqlite" },
+          { name: "Firebase", icon: "firebase" },
+        ],
+      },
+      {
+        title: "Project Management Tools:",
+        tags: [
+          { name: "MS Project", icon: "microsoft" },
+          { name: "Jira", icon: "jira" },
+          { name: "Trello", icon: "trello" },
         ],
       },
     ],
   },
+  hackathons: {
+    display: true, // set to false to hide this section
+    title: "Key Achievements",
+    experiences: [
+      {
+        company: "Healthcare FSA Agadir",
+        achievements: [
+          <>
+            Contributed to designing and developing innovative digital solutions for the HealthTech Hackathon,
+            focused on improving healthcare services using AI, embedded systems, and software engineering.
+          </>,
+          <>
+            Collaborated with a team of 4 participants to build, test, and refine application features,
+            ensuring reliability and usability of the prototype.
+          </>,
+          <>
+            Presented the final solution to the jury, highlighting technical implementation, innovation, and impact.
+          </>,
+        ],
+        images: [
+          {
+            src: "/images/hackathons/hack_1_1.png",
+            alt: "HealthTech Hackathon Project",
+            width: 16,
+            height: 9,
+          }
+        ],
+      },
+      
+    ],
+  },
+  
 };
 
 const blog: Blog = {
