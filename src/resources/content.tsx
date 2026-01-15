@@ -304,10 +304,10 @@ const about: About = {
   hackathons: {
     display: true, // set to false to hide this section
     title: "Key Achievements",
+    description: "dddd",
     experiences: [
       {
         company: "Healthcare FSA Agadir 2025",
-        description: "",
         achievements: [
           <Text key="health-1">
             Contributed to designing and developing innovative digital solutions for the HealthTech Hackathon,
@@ -333,7 +333,7 @@ const about: About = {
       },
       {
         company: "IDEATHON AGADIR 2024",
-        description: "",
+        
         achievements: [
           <Text key="idea-1">
             Participated in the Ideathon Agadir 2030, an innovation challenge focused on designing smart,
