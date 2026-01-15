@@ -215,9 +215,12 @@ export interface About extends BasePageConfig {
     /** Title for the work experience section */
     title: string;
     /** List of work experiences */
+    
+
     experiences: Array<{
       /** Company name */
       company: string;
+      description: React.ReactNode;
       /** Timeframe of employment */
       /** Role or job title */
       /** Achievements at the company */
