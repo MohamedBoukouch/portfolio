@@ -52,7 +52,7 @@ export default function About() {
     {
       title: about.hackathons.title,
       display: about.hackathons.display,
-      items: about.studies.institutions.map((institution) => institution.name),
+      items: about.hackathons.experiences.map((experiences) => experiences.company),
 
     },
   ];
@@ -297,7 +297,7 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="l" marginBottom="m">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
@@ -318,6 +318,58 @@ export default function About() {
                     {skill.images && skill.images.length > 0 && (
                       <Row fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image, index) => (
+                          <Row
+                            key={index}
+                            border="neutral-medium"
+                            radius="m"
+                            minWidth={image.width}
+                            height={image.height}
+                          >
+                            <Media
+                              enlarge
+                              radius="m"
+                              sizes={image.width.toString()}
+                              alt={image.alt}
+                              src={image.src}
+                            />
+                          </Row>
+                        ))}
+                      </Row>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+          {about.hackathons.display && (
+            <>
+              <Heading as="h2" id={about.hackathons.title} variant="display-strong-s" marginBottom="m">
+                {about.hackathons.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.hackathons.experiences.map((experience, index) => (
+                  <Column key={`${experience.company}-${experience.company}-${index}`} fillWidth>
+                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                      <Text id={experience.company} variant="heading-strong-l">
+                        {experience.company}
+                      </Text>
+                    </Row>
+                    <Column as="ul" gap="16">
+                      {experience.achievements.map(
+                        (achievement: React.ReactNode, index: number) => (
+                          <Text
+                            as="li"
+                            variant="body-default-m"
+                            key={`${experience.company}-${index}`}
+                          >
+                            {achievement}
+                          </Text>
+                        ),
+                      )}
+                    </Column>
+                    {experience.images && experience.images.length > 0 && (
+                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                        {experience.images.map((image, index) => (
                           <Row
                             key={index}
                             border="neutral-medium"

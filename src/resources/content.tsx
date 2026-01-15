@@ -8,7 +8,7 @@ const person: Person = {
   role: "Software Engineering Student",
   avatar: "/images/avatar.jpg",
   email: "boukouchmohamed7@gmail.com",
-  location: "Asia/Almaty", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "Africa/Casablanca", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Anglais", "French", "Arabe"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -306,30 +306,69 @@ const about: About = {
     title: "Key Achievements",
     experiences: [
       {
-        company: "Healthcare FSA Agadir",
+        company: "Healthcare FSA Agadir 2025",
         achievements: [
-          <>
+          <Text key="health-1">
             Contributed to designing and developing innovative digital solutions for the HealthTech Hackathon,
             focused on improving healthcare services using AI, embedded systems, and software engineering.
-          </>,
-          <>
+          </Text>,
+          <Text key="health-2">
             Collaborated with a team of 4 participants to build, test, and refine application features,
             ensuring reliability and usability of the prototype.
-          </>,
-          <>
+          </Text>,
+          <Text key="health-3">
             Presented the final solution to the jury, highlighting technical implementation, innovation, and impact.
-          </>,
+          </Text>,
         ],
+        
         images: [
           {
-            src: "/images/hackathons/hack_1_1.png",
+            src: "/images/hackathons/hackathon_1/hack_1_1.png",
             alt: "HealthTech Hackathon Project",
             width: 16,
             height: 9,
           }
         ],
       },
-      
+      {
+        company: "IDEATHON AGADIR 2024",
+        achievements: [
+          <Text key="idea-1">
+            Participated in the Ideathon Agadir 2030, an innovation challenge focused on designing smart,
+            inclusive, and sustainable solutions for the future development of the city of Agadir.
+          </Text>,
+          <Text key="idea-2">
+            Contributed to proposing technology-driven ideas addressing key urban challenges, including
+            the enhancement of Souk Al-Had, cultural and tourism promotion, and the promotion of health
+            and well-being through sports.
+          </Text>,
+          <Text key="idea-3">
+            Collaborated with multidisciplinary teams to conceptualize impactful solutions aligned with
+            the vision of “Agadir 2030: Smart and Accessible City for All”, and presented ideas to a jury
+            of professionals and organizers.
+          </Text>,
+        ],
+        images: [
+          {
+            src: "/images/hackathons/hackathon_2/hack_2_1.png",
+            alt: "Ideathon Agadir 2030",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/hackathons/hackathon_2/hack_2_2.png",
+            alt: "Ideathon Agadir 2030",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/images/hackathons/hackathon_2/hack_2_3.png",
+            alt: "Ideathon Agadir 2030",
+            width: 16,
+            height: 9,
+          },
+        ],
+      }
     ],
   },
   
