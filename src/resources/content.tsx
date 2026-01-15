@@ -304,7 +304,7 @@ const about: About = {
   hackathons: {
     display: true, // set to false to hide this section
     title: "Key Achievements",
-    description: "dddd",
+    description: "",
     experiences: [
       {
         company: "Healthcare FSA Agadir 2025",
