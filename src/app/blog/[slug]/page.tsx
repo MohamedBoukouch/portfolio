@@ -22,51 +22,58 @@ import { getPosts } from "@/utils/utils";
 import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 
-/* ✅ FORCE NODE — disables Edge */
+/* ✅ FORCE NODE */
 export const runtime = "nodejs";
 
-/* ✅ STATIC GENERATION */
+/* ✅ STATIC PARAMS — MUST NEVER THROW */
 export async function generateStaticParams() {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  return posts.map((post) => ({ slug: post.slug }));
+  try {
+    const posts = getPosts(["src", "app", "blog", "posts"]);
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("generateStaticParams failed:", error);
+    return [];
+  }
 }
 
-/* ✅ SAFE METADATA (NO EDGE) */
+/* ✅ SAFE METADATA — NO notFound HERE */
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find((p) => p.slug === params.slug);
+  try {
+    const posts = getPosts(["src", "app", "blog", "posts"]);
+    const post = posts.find((p) => p.slug === params.slug);
 
-  if (!post) {
+    if (!post) return {};
+
     return {
-      title: "Post not found",
-    };
-  }
-
-  return {
-    title: post.metadata.title,
-    description: post.metadata.summary,
-    openGraph: {
       title: post.metadata.title,
       description: post.metadata.summary,
-      url: `${baseURL}${blog.path}/${post.slug}`,
-      images: [
-        {
-          url:
-            post.metadata.image ??
-            `/api/og/generate?title=${encodeURIComponent(
-              post.metadata.title
-            )}`,
-        },
-      ],
-    },
-  };
+      openGraph: {
+        title: post.metadata.title,
+        description: post.metadata.summary,
+        url: `${baseURL}${blog.path}/${post.slug}`,
+        images: [
+          {
+            url:
+              post.metadata.image ??
+              `/api/og/generate?title=${encodeURIComponent(
+                post.metadata.title
+              )}`,
+          },
+        ],
+      },
+    };
+  } catch {
+    return {};
+  }
 }
 
-/* ✅ PAGE */
+/* ✅ PAGE — notFound ONLY AT RUNTIME */
 export default async function BlogPage({
   params,
 }: {
@@ -79,21 +86,12 @@ export default async function BlogPage({
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((p) => ({ src: p.avatar })) ?? [];
-
   return (
     <Row fillWidth>
       <Row maxWidth={12} m={{ hide: true }} />
 
       <Row fillWidth horizontal="center">
-        <Column
-          as="section"
-          maxWidth="m"
-          horizontal="center"
-          gap="l"
-          paddingTop="24"
-        >
+        <Column as="section" maxWidth="m" gap="l" paddingTop="24">
           <Schema
             as="blogPosting"
             baseURL={baseURL}
@@ -115,7 +113,7 @@ export default async function BlogPage({
             }}
           />
 
-          <Column maxWidth="s" gap="16" align="center">
+          <Column maxWidth="s" align="center" gap="16">
             <SmartLink href="/blog">
               <Text variant="label-strong-m">Blog</Text>
             </SmartLink>
@@ -128,27 +126,7 @@ export default async function BlogPage({
             <Heading variant="display-strong-m">
               {post.metadata.title}
             </Heading>
-
-            {post.metadata.subtitle && (
-              <Text
-                variant="body-default-l"
-                onBackground="neutral-weak"
-                align="center"
-                style={{ fontStyle: "italic" }}
-              >
-                {post.metadata.subtitle}
-              </Text>
-            )}
           </Column>
-
-          <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
-              <Avatar size="s" src={person.avatar} />
-              <Text variant="label-default-m">
-                {person.name}
-              </Text>
-            </Row>
-          </Row>
 
           {post.metadata.image && (
             <Media
@@ -156,7 +134,6 @@ export default async function BlogPage({
               alt={post.metadata.title}
               aspectRatio="16/9"
               priority
-              border="neutral-alpha-weak"
               radius="l"
             />
           )}
@@ -175,26 +152,14 @@ export default async function BlogPage({
             <Text as="h2" variant="heading-strong-xl">
               Recent posts
             </Text>
-            <Posts
-              exclude={[post.slug]}
-              range={[1, 2]}
-              columns="2"
-              thumbnail
-              direction="column"
-            />
+            <Posts exclude={[post.slug]} range={[1, 2]} />
           </Column>
 
           <ScrollToHash />
         </Column>
       </Row>
 
-      <Column
-        maxWidth={12}
-        paddingLeft="40"
-        position="sticky"
-        top="80"
-        m={{ hide: true }}
-      >
+      <Column maxWidth={12} position="sticky" top="80" m={{ hide: true }}>
         <HeadingNav />
       </Column>
     </Row>
