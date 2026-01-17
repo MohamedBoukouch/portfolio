@@ -1,6 +1,11 @@
+
+export const runtime = "nodejs";
+
 import { getPosts } from "@/utils/utils";
-import { baseURL, blog, person } from "@/resources";
 import { NextResponse } from "next/server";
+
+import { baseURL, blog, person } from "@/resources/server";
+
 
 export async function GET() {
   const posts = getPosts(["src", "app", "blog", "posts"]);

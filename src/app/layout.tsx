@@ -1,6 +1,7 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
+import { fonts } from "@/resources/fonts";
 
 import classNames from "classnames";
 
@@ -14,7 +15,7 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
+import { baseURL, effects, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
   return Meta.generate({
