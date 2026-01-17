@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function GalleryPage() {
   return (
     <Flex maxWidth="l">
-      <Schema
+      {/* <Schema
         as="webPage"
         baseURL={baseURL}
         title={gallery.title}
@@ -33,7 +33,10 @@ export default function GalleryPage() {
         }}
       />
 
-      <GalleryView />
+      <GalleryView /> */}
+      <div>
+        No images published yet.
+      </div>
     </Flex>
   );
 }

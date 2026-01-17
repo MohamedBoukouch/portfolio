@@ -21,33 +21,28 @@ import { baseURL, about, person, work } from "@/resources";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Projects } from "@/components/work/Projects";
 
-/* -------------------------------------------------------------------------- */
-/*                               Static params                                */
-/* -------------------------------------------------------------------------- */
-
+/* ----------------------- Static params for SSG ----------------------- */
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
-
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                 Metadata                                   */
-/* -------------------------------------------------------------------------- */
-
+/* -------------------------- Metadata -------------------------- */
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string | string[] };
 }): Promise<Metadata> {
-  const slug = Array.isArray(params.slug)
-    ? params.slug.join("/")
-    : params.slug;
+  // Unwrap params safely
+  const slugParam = await Promise.resolve(params);
+  const slug = Array.isArray(slugParam.slug)
+    ? slugParam.slug.join("/")
+    : slugParam.slug;
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((p) => p.slug === slug);
+  const post = posts.find((p) => p.slug.toLowerCase() === slug.toLowerCase());
 
   if (!post) return {};
 
@@ -64,32 +59,30 @@ export async function generateMetadata({
   });
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                   Page                                     */
-/* -------------------------------------------------------------------------- */
-
+/* -------------------------- Project Page -------------------------- */
 export default async function ProjectPage({
   params,
 }: {
   params: { slug: string | string[] };
 }) {
-  const slug = Array.isArray(params.slug)
-    ? params.slug.join("/")
-    : params.slug;
+  const slugParam = await Promise.resolve(params); // Unwrap params
+  const slug = Array.isArray(slugParam.slug)
+    ? slugParam.slug.join("/")
+    : slugParam.slug;
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find((p) => p.slug === slug);
+  const post = posts.find((p) => p.slug.toLowerCase() === slug.toLowerCase());
 
   if (!post) {
+    console.error("Slug not found:", slug);
+    console.log("Available slugs:", posts.map((p) => p.slug));
     notFound();
   }
 
   const avatars =
-    post.metadata.team?.map((member) => ({
-      src: member.avatar,
-    })) ?? [];
+    post.metadata.team?.map((member) => ({ src: member.avatar })) ?? [];
 
-  const heroImage = post.metadata.images?.[0];
+  const heroImage = post.metadata.images?.[0] ?? null;
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -124,28 +117,24 @@ export default async function ProjectPage({
           </Text>
         )}
 
-        <Heading variant="display-strong-m">
-          {post.metadata.title}
-        </Heading>
+        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
 
       {/* Team */}
-      {post.metadata.team && (
+      {avatars.length > 0 && (
         <Row marginBottom="32" horizontal="center">
           <Row gap="16" vertical="center">
             <AvatarGroup reverse avatars={avatars} size="s" />
 
             <Text variant="label-default-m" onBackground="brand-weak">
-              {post.metadata.team.map((member, index) => (
+              {post.metadata.team?.map((member, index) => (
                 <span key={index}>
                   {index > 0 && (
                     <Text as="span" onBackground="neutral-weak">
                       ,{" "}
                     </Text>
                   )}
-                  <SmartLink href={member.linkedIn}>
-                    {member.name}
-                  </SmartLink>
+                  <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
                 </span>
               ))}
             </Text>
@@ -154,15 +143,7 @@ export default async function ProjectPage({
       )}
 
       {/* Hero image */}
-      {heroImage && (
-        <Media
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt={post.metadata.title}
-          src={heroImage}
-        />
-      )}
+      {heroImage && <Media priority aspectRatio="16/9" radius="m" alt={post.metadata.title} src={heroImage} />}
 
       {/* Content */}
       <Column as="article" maxWidth="xs" style={{ margin: "auto" }}>
